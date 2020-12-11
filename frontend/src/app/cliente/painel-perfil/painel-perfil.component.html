@@ -1,0 +1,99 @@
+<div class="container mb-5 pt-5 contact-forms alteraDados" style="position: relative;">   
+    
+    
+  <form [formGroup]="formulario" (ngSubmit)="atualizar()">
+
+    <div class="row ">
+        <div class="col-6">
+            <h4 class="mb-3"><strong>Alterar dados pessoais:</strong></h4>
+        </div>
+        <div class="d-flex justify-content-end col-6 ">
+            <button type="submit" class="btn"
+                [class]="operacao ? 'btn-primary' : 'btn-success'">Alterar
+             </button>
+        </div>
+    </div>
+    
+      <div class="form-row">
+          <input type="hidden" formControlName="id"/>
+          <div class="form-group col-md-6">
+              <label for="nome">Nome</label>
+              <input id="nome" type="text" class="form-control" formControlName="nome" />
+          </div>
+          <div class="form-group col-md-6">
+              <label for="sobrenome">Sobrenome</label>
+              <input 
+              type="text" 
+              class="form-control" 
+              id="sobrenome" 
+              formControlName="sobrenome"             
+              />
+             
+          </div>
+          
+      </div>      
+      <!-- <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <p-inputMask styleClass="form-control" id="telefone" placeholder="(73) 95321-9875"
+              formControlName="telefone" mask="(99) 99999-9999"></p-inputMask>
+      </div>    -->     
+      <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control" id="email" formControlName="email" />
+        </div> 
+        <div class="form-group col-md-6">
+            <label for="telefones">Telefone</label>
+            <p-inputMask styleClass="form-control" id="telefone" 
+                    formControlName="telefones" mask="(99) 99999-9999"                   
+                  >                  
+                  </p-inputMask>
+        </div> 
+      </div>    
+      <div class="form-row">
+          <div class="form-group col-md-6">
+              <label for="cep">CEP</label>
+              <input type="text" class="form-control" id="cep" formControlName="cep">
+          </div>
+          <div class="form-group col-md-4">
+              <label for="logradouro">Logradouro</label>
+              <input type="text" class="form-control" id="logradouro" formControlName="logradouro">
+          </div>
+          <div class="form-group col-md-2">
+              <label for="numero">Número</label>
+              <input type="text" class="form-control" id="numero" formControlName="numero">
+          </div>
+      </div>
+      <div class="form-row">
+          <div class="form-group col-md-6">
+              <label for="complemento">Complemento</label>
+              <input type="text" class="form-control" id="complemento" formControlName="complemento">
+          </div>
+          <div class="form-group col-md-6">
+              <label for="bairro">Bairro</label>
+              <input type="text" class="form-control" id="bairro" formControlName="bairro">
+          </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="">Estado</label>
+            <p-dropdown 
+                [options]="estados" 
+                formControlName="estado" 
+                [filter]="true" 
+                [style]="{'width':'100%'}"
+                (onChange)="listarCidades()">
+            </p-dropdown>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="">Cidade</label>
+            <p-dropdown                 
+                [options]="cidades" 
+                formControlName="cidade" 
+                [filter]="true" 
+                [style]="{'width':'100%'}">
+            </p-dropdown>
+        </div>
+    </div>   
+  </form>
+</div>

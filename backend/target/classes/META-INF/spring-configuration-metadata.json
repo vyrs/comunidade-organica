@@ -1,0 +1,52 @@
+{
+  "groups": [
+    {
+      "name": "dh.email",
+      "type": "br.com.digitalhouse.email.EmailProperties",
+      "sourceType": "br.com.digitalhouse.email.EmailProperties"
+    },
+    {
+      "name": "digitalhouse.storage.s3",
+      "type": "br.com.digitalhouse.storage.config.StorageProperties",
+      "sourceType": "br.com.digitalhouse.storage.config.StorageProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "dh.email.remetente",
+      "type": "java.lang.String",
+      "sourceType": "br.com.digitalhouse.email.EmailProperties"
+    },
+    {
+      "name": "digitalhouse.password.client",
+      "type": "java.lang.String",
+      "description": "A description for 'digitalhouse.password.client'"
+    },
+    {
+      "name": "digitalhouse.storage.s3.bucket",
+      "type": "java.lang.String",
+      "sourceType": "br.com.digitalhouse.storage.config.StorageProperties"
+    },
+    {
+      "name": "digitalhouse.storage.s3.chave-acesso-secreta",
+      "type": "java.lang.String",
+      "sourceType": "br.com.digitalhouse.storage.config.StorageProperties"
+    },
+    {
+      "name": "digitalhouse.storage.s3.diretorio-fotos",
+      "type": "java.lang.String",
+      "sourceType": "br.com.digitalhouse.storage.config.StorageProperties"
+    },
+    {
+      "name": "digitalhouse.storage.s3.id-chave-acesso",
+      "type": "java.lang.String",
+      "sourceType": "br.com.digitalhouse.storage.config.StorageProperties"
+    },
+    {
+      "name": "digitalhouse.storage.s3.regiao",
+      "type": "com.amazonaws.regions.Regions",
+      "sourceType": "br.com.digitalhouse.storage.config.StorageProperties"
+    }
+  ],
+  "hints": []
+}

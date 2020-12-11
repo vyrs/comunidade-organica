@@ -1,0 +1,227 @@
+    <!-- cadastro -->
+    <div class="container mt-5 contact-forms" >
+
+      
+
+      <form [formGroup]="formulario" (ngSubmit)="cadastrar()">
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="nome">Nome</label>
+                  <input id="nome" type="text" class="form-control" formControlName="nome" 
+
+                  [class]="(submitted && formulario.get('nome').errors) || 
+                  (formulario.get('nome').errors && formulario.get('nome').dirty) ? 'is-invalid' : 
+                  formulario.get('nome').dirty ? 'is-valid' : '' "
+                    />
+                    <div *ngIf="formulario.get('nome').errors?.required"
+                      class="invalid-feedback" >
+                        Sobrenome é obrigatório!
+                    </div>
+                    <div *ngIf="formulario.get('nome').errors?.minlength"
+                    class="invalid-feedback" >
+                        Sobrenome deve ter mais que 3 caracteres!
+                    </div>
+                    <div *ngIf="formulario.get('nome').errors?.maxlength"
+                    class="invalid-feedback" >
+                        Sobrenome excedeu a quantidade máxima de 150 caracteres!
+                    </div>
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="sobrenome">Sobrenome</label>
+                  <input type="text" class="form-control" id="sobrenome" formControlName="sobrenome" 
+
+                  [class]="(submitted && formulario.get('sobrenome').errors) || 
+                  (formulario.get('sobrenome').errors && formulario.get('sobrenome').dirty) ? 'is-invalid' : 
+                  formulario.get('sobrenome').dirty ? 'is-valid' : '' "
+                    />
+                    <div *ngIf="formulario.get('sobrenome').errors?.required"
+                      class="invalid-feedback" >
+                        Sobrenome é obrigatório!
+                    </div>
+                    <div *ngIf="formulario.get('sobrenome').errors?.minlength"
+                    class="invalid-feedback" >
+                        Sobrenome deve ter mais que 3 caracteres!
+                    </div>
+                    <div *ngIf="formulario.get('sobrenome').errors?.maxlength"
+                    class="invalid-feedback" >
+                        Sobrenome excedeu a quantidade máxima de 150 caracteres!
+                    </div>
+              </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="telefone">Telefone</label>
+              <!-- <input type="text" class="form-control" id="telefone" placeholder="73 95321-9875"
+                  formControlName="telefone"> -->
+                  <p-inputMask styleClass="form-control" id="telefone" placeholder="(73) 95321-9875"
+                    formControlName="telefone" mask="(99) 99999-9999"
+
+                    [class]="(submitted && formulario.get('telefone').errors) || 
+                    (formulario.get('telefone').errors && formulario.get('telefone').dirty) ? 'is-invalid' : 
+                    formulario.get('telefone').dirty ? 'is-valid' : '' "
+                  >                  
+                  </p-inputMask>
+                  <div *ngIf="formulario.get('telefone').errors?.required"
+                  class="invalid-feedback" >
+                    Telefone é obrigatório!
+                 </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email">E-mail</label>
+                <input type="email" class="form-control" id="email" formControlName="email" />
+            </div>
+          </div>          
+         
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="cep">CEP</label>
+                  <!-- <input type="text" class="form-control" id="cep" formControlName="cep"> -->
+                  <p-inputMask styleClass="form-control" id="cep" placeholder="00000-000"
+                    formControlName="cep" mask="99999-99"
+
+                    [class]="(submitted && formulario.get('cep').errors) || 
+                    (formulario.get('cep').errors && formulario.get('cep').dirty) ? 'is-invalid' : 
+                    formulario.get('cep').dirty ? 'is-valid' : '' "
+                  >                  
+                  </p-inputMask>
+                  <div *ngIf="formulario.get('cep').errors?.required"
+                  class="invalid-feedback" >
+                    CEP é obrigatório!
+                 </div>
+              </div>
+              <div class="form-group col-md-4">
+                  <label for="logradouro">Logradouro</label>
+                  <input type="text" class="form-control" id="logradouro" formControlName="logradouro"
+
+                  [class]="(submitted && formulario.get('logradouro').errors) || 
+                  (formulario.get('logradouro').errors && formulario.get('logradouro').dirty) ? 'is-invalid' : 
+                  formulario.get('logradouro').dirty ? 'is-valid' : '' "
+                    />
+                    <div *ngIf="formulario.get('logradouro').errors?.required"
+                      class="invalid-feedback" >
+                      logradouro é obrigatório!
+                    </div>
+                    <div *ngIf="formulario.get('logradouro').errors?.minlength"
+                      class="invalid-feedback" >
+                      logradouro deve ter mais que 3 caracteres!
+                    </div>
+                    <div *ngIf="formulario.get('logradouro').errors?.maxlength"
+                       class="invalid-feedback" >
+                       logradouro excedeu a quantidade máxima de 150 caracteres!
+                    </div>
+              </div>
+              <div class="form-group col-md-2">
+                  <label for="numero">Número</label>
+                  <input type="text" class="form-control" id="numero" formControlName="numero">
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="complemento">Complemento</label>
+                  <input type="text" class="form-control" id="complemento" formControlName="complemento"
+
+                  [class]="(submitted && formulario.get('complemento').errors) || 
+                  (formulario.get('complemento').errors && formulario.get('complemento').dirty) ? 'is-invalid' : 
+                  formulario.get('complemento').dirty ? 'is-valid' : '' "
+                    />
+                    <div *ngIf="formulario.get('complemento').errors?.required"
+                      class="invalid-feedback" >
+                      complemento é obrigatório!
+                    </div>
+                    <div *ngIf="formulario.get('complemento').errors?.minlength"
+                      class="invalid-feedback" >
+                      complemento deve ter mais que 3 caracteres!
+                    </div>
+                    <div *ngIf="formulario.get('complemento').errors?.maxlength"
+                       class="invalid-feedback" >
+                       complemento excedeu a quantidade máxima de 150 caracteres!
+                    </div>
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="bairro">Bairro</label>
+                  <input type="text" class="form-control" id="bairro" formControlName="bairro"
+
+                  [class]="(submitted && formulario.get('bairro').errors) || 
+                  (formulario.get('bairro').errors && formulario.get('bairro').dirty) ? 'is-invalid' : 
+                  formulario.get('bairro').dirty ? 'is-valid' : '' "
+                    />
+                    <div *ngIf="formulario.get('bairro').errors?.required"
+                      class="invalid-feedback" >
+                      bairro é obrigatório!
+                    </div>
+                    <div *ngIf="formulario.get('bairro').errors?.minlength"
+                      class="invalid-feedback" >
+                      bairro deve ter mais que 3 caracteres!
+                    </div>
+                    <div *ngIf="formulario.get('bairro').errors?.maxlength"
+                       class="invalid-feedback" >
+                       bairro excedeu a quantidade máxima de 150 caracteres!
+                    </div>
+
+              </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="senha">Senha</label>
+                <input type="password" class="form-control" id="senha" formControlName="senha"
+
+                [class]="(submitted && formulario.get('senha').errors) || 
+                (formulario.get('senha').errors && formulario.get('senha').dirty) ? 'is-invalid' : 
+                formulario.get('senha').dirty ? 'is-valid' : '' "
+                  />
+                  <div *ngIf="formulario.get('senha').errors?.required"
+                    class="invalid-feedback" >
+                    senha é obrigatório!
+                  </div>
+                  <div *ngIf="formulario.get('senha').errors?.minlength"
+                    class="invalid-feedback" >
+                    senha deve ter mais que 6 caracteres!
+                  </div>
+                  <div *ngIf="formulario.get('senha').errors?.maxlength"
+                     class="invalid-feedback" >
+                     senha excedeu a quantidade máxima de 8 caracteres!
+                  </div>
+            </div>
+            <!-- <div class="form-group col-md-6">
+                <label for="confirmaSenha">Confirma Senha</label>
+                <input type="text" class="form-control" id="confirmaSenha" formControlName="confirmaSenha">
+            </div> -->
+        </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="">Estado</label>
+                  <p-dropdown 
+                      [options]="estados" 
+                      formControlName="estado" 
+                      [filter]="true" 
+                      [style]="{'width':'100%'}"
+                      (onChange)="listarCidades()">
+                  </p-dropdown>
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="">Cidade</label>
+                  <p-dropdown 
+                      [options]="cidades" 
+                      formControlName="cidade" 
+                      [filter]="true" 
+                      [style]="{'width':'100%'}">
+                  </p-dropdown>
+              </div>
+          </div>
+          <button type="submit" class="btn"
+              [class]="operacao ? 'btn-primary' : 'btn-success'">{{ operacao ? "Cadastrar" : "Atualizar" }}
+          </button>
+      </form>
+  </div>
+    <!-- //cadastro -->
+  
+    <section style="margin-top: 2%;">
+      <footer class="bottem-wthree-footer text-center py-md-4 py-3">
+        <a href="#home" class="move-top text-center mt-3">
+          <span class="fa fa-arrow-up" aria-hidden="true"></span>
+        </a>
+        <p>
+          © 2020 Comunidade Orgânica. Todos os direitos reservados. | Grupo 1 PI - T03VE
+        </p>
+      </footer>
+    </section>

@@ -1,0 +1,53 @@
+<!-- <div class="area"> -->
+    
+
+    <div class="card">
+      
+        <p-dataView [value]="products" layout="grid" [paginator]="true" [rows]="4">
+    
+            <ng-template let-ProdutoEntity pTemplate="gridItem"  >
+                <div class="p-col-3">
+                    <div class="product-grid-item card">
+                        <div class="product-grid-item-top">
+                            <div>
+                                <i class="pi pi-tag product-category-icon"></i>
+                                <span class="uppercase product-category"> <strong>{{ ProdutoEntity.tipo }}</strong></span>
+                            </div>
+                        </div>
+                        <div class="product-grid-item-content">
+                            <p-card>
+                                <div  *ngFor="let item of urls">                                
+                                    <div *ngIf="item.id == ProdutoEntity.id">
+                                        <img class="imgTamanhoMeus" [src]='item.url1' /> 
+                                    </div>                                
+                                </div>                              
+                            </p-card>
+                                                                         
+                            <div class="descNomeProduto">
+                                <span class="uppercase">{{ ProdutoEntity.nome }}</span>                                 
+                            </div>
+                            <!-- <div class="product-description">Colhido em {{ ProdutoEntity.dataColheita }}</div> -->
+                        </div>
+                        <div class="product-grid-item-bottom">
+                            <span class="product-price">R${{ ProdutoEntity.preco.toFixed(2) }}</span>
+                            <!-- <span class="product-price">{{ ProdutoEntity.cliente.nome }}</span> -->
+                        </div>                    
+                        <div class="product-grid-item-bottom"> 
+
+                             <p-button *ngIf="usuario !== ''" 
+                             routerLink="/area-logada/area-produto/cadastra-produto/{{ ProdutoEntity.id }}" 
+                              routerLinkActive="router-link-active"  >Editar</p-button>
+
+                              <p-button *ngIf="usuario !== ''" 
+                                 routerLink="/area-logada/area-produto/confirma-delete-produto/{{ ProdutoEntity.id }}" 
+                                 routerLinkActive="router-link-active"  >Apagar</p-button>
+
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-dataView>
+       
+    </div>
+
+<!-- </div> -->

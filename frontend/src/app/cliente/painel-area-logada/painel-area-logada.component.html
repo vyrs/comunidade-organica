@@ -1,0 +1,31 @@
+<div class="container-fluid" style="padding:0.5% ;">
+
+  <div >
+    
+    <div class="row">
+      <div class="sidenav menulogado" >
+        <a style="color: white;" (click)="showPerfil()">Conta</a>
+        <a style="color: white;" (click)="showDashBoard()">Dashboard</a> 
+        <a style="color: white;" (click)="showAreaProduto()">Produtos</a>
+        <a style="color: white;" routerLink="/home/painel-produto" routerLinkActive="router-link-active" >Sair</a>
+        
+      </div>
+      <div class="conteudo">
+        <router-outlet></router-outlet>
+      </div>
+  
+    </div>  
+  </div>
+  
+  <section style="margin-top: 0.5%;" *ngIf="exibirRodape">
+    <footer class="bottem-wthree-footer text-center py-md-4 py-3">
+      <a routerLink="/home/painel-produto" class="move-top text-center mt-3">
+        <span class="fa fa-arrow-up" aria-hidden="true"></span>
+      </a>
+      <span style="color: white;" >
+        © 2020 Comunidade Orgânica. Todos os direitos reservados. | Grupo 1 PI - T03VE
+      </span>
+    </footer>
+  </section>
+
+</div>

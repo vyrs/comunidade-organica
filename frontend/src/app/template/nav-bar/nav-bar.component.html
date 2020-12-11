@@ -1,0 +1,43 @@
+<div >
+    <div class="headder-top-login">
+      <!-- navegação -->
+      <nav>
+        <div id="logo">
+          <h1>
+            <a routerLink="/home/painel-produto">CO</a>
+          </h1>
+        </div>
+        <div class="sub-headder position-relative">
+          <h6>
+            <a routerLink="/home/painel-produto">Comunidade
+              <br>Orgânica</a>
+          </h6>
+        </div>
+        <label for="drop" class="toggle">Menu</label>
+        <input type="checkbox" id="drop">
+        <ul class="menu mt-2">
+          <li>
+            <a routerLink="/home/painel-produto">Home</a>
+          </li>     
+          <li>
+            <a *ngIf="usuario !== ''" routerLink="/area-logada/perfil">Area Logada</a>
+          </li>     
+          <li>
+            <a *ngIf="usuario == ''"  routerLink="/cadastro">Cadastro</a>
+          </li>
+          <li>
+            <a *ngIf="usuario == ''" routerLink="/login">Login</a>
+          </li> 
+          
+          <li> 
+            <span *ngIf="usuario !== ''" class="nav-item nav-link">{{ usuario }}</span>
+          </li>
+          <li>            
+            <a *ngIf="usuario !== ''" class="nav-item nav-link" (click)="logout()">Logout</a>
+          </li>              
+        </ul>
+      </nav>
+      <!-- //navegação -->
+    </div>  
+</div>  
+ 

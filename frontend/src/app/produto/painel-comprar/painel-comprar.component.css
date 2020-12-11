@@ -1,0 +1,21 @@
+
+.areaComprar {
+    
+    background-color: none;
+    width: 98%;
+    height: 500px;
+    
+}
+.margin{
+    margin-top: 2%;
+    /* border: 1px solid blue; */ 
+}
+.tamanhoArea {
+    width: 100%;
+    height: 300px;
+    
+}
+.imgTamanhoCompra{
+    width: 100%;
+    height: 300px;
+}

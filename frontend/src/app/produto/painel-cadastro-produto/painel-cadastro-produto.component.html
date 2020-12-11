@@ -1,0 +1,127 @@
+  <section class="contact py-lg-4 py-md-4 py-sm-3 py-3" id="cadastro" style="margin-top: -6%;">
+    <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+      <div *ngIf="operacao; then thenBlock else elseBlock"></div>      
+      <ng-template #thenBlock>
+        <h4  class="title text-center mb-2"><strong>Cadastre seu produto</strong></h4>
+      </ng-template>
+      <ng-template #elseBlock>
+        <h4  class="title text-center mb-2"><strong>Atualizar produto</strong></h4>
+      </ng-template>
+
+      <div >
+
+       
+
+      <div *ngIf="!operacao" class="row mt-5 mb-3">              
+        <div class="col-4" *ngFor="let item of fotosProduto; index as i">               
+          
+         <div class="cardAjuste">
+          <img class="imgEdit" [src]=" fotosProduto[i].url ">
+         </div>  
+         
+        </div>
+        <div class="row mt-2 btnAjusteEdFotos">
+          <p-button (click)="showPositionDialog('top')"  label="Info" ></p-button>
+          <p-dialog header="Atenção" [(visible)]="displayPosition" [position]="position" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+          [draggable]="false" [resizable]="false">
+          <p>As imagens desde produto só poderam ser substituidas após exclusão do produto e 
+            efetuando um novo cadastro com novas imagens.
+          </p>
+              <ng-template pTemplate="footer">
+                  <p-button icon="pi pi-check" (click)="displayPosition=false" label="Ok" styleClass="p-button-text"></p-button>
+              </ng-template>
+          </p-dialog>
+         <!--  <button routerLink="/area-logada/area-produto/atualizar-fotos/{{ idPagAtualizar }}" routerLinkActive="router-link-active" >
+          Editar
+          </button> -->
+        </div>
+
+      </div>
+        <!-- end trabalhando nisso -->
+      
+
+        <form class="contact-forms" [formGroup]="formulario" (ngSubmit)="cadastrar()" >
+          
+          <div *ngIf="operacao; then thenMotrar else eslseMostrar"></div>
+          <ng-template #thenMotrar>
+            <p>Selecione a foto do produto:</p>
+            <div class="col-12">
+              <label for="nome">Foto</label>
+              <p-fileUpload #upload 
+                  name="demo[]" 
+                  chooseLabel="Escolher uma foto" 
+                  [showUploadButton]="false"
+                  [showCancelButton]="false"
+                  (onSelect)="enviarImagem($event)"                
+                  fileLimit="3"
+                  multiple="multiple"
+                  accept="image/*"
+                  maxFileSize="1000000">               
+              </p-fileUpload>              
+            </div>      
+          </ng-template>
+          <ng-template #eslseMostrar>
+           
+          </ng-template>
+          
+
+          <div class="row mt-4">                  
+              <div class="form-group col-md-6 formNome" >
+                <input type="hidden" formControlName="id"/>
+                <label for="nome">Nome</label>
+                <input id="nome" type="text" class="form-control " formControlName="nome" />
+              </div>
+          </div> 
+         
+          <div class="row ">           
+            <div class="form-group col-md-6 formNome">
+              <label for="tipo">Tipo</label>
+              <input id="tipo" type="text" class="form-control" formControlName="tipo" />
+            </div>
+          </div>
+          
+          
+          <div class="row">
+            <div class="form-group col-md-6 formNome">
+              <label for="preco">Preço</label>
+              <input id="preco" type="number" class="form-control" formControlName="preco" />
+            </div>
+            <div class="form-group col-md-3 formNome">
+              <label for="quantidade">Quantidade</label>
+              <input id="quantidade" type="text" class="form-control" formControlName="quantidade" />
+            </div>
+            <div class="form-group col-md-3 formNome">
+              <label for="dataColheita ">Data Colheita</label>
+              <input type="date" class="form-control" id="dataColheita" formControlName="dataColheita" />
+             <!--  <input id="dataColheita "
+               type="text" class="form-control"
+                formControlName="dataColheita" /> -->
+                
+            </div>
+          </div>
+          <button type="submit" class="btn"
+              [class]="operacao ? 'btn-primary' : 'btn-success'">{{ operacao ? "Cadastrar" : "Atualizar" }}
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <p-messages [(value)]="mensagem" 
+    [enableService]="false" 
+    [showTransitionOptions]="'1000ms'" 
+    [hideTransitionOptions]="'1000ms'">
+    </p-messages>
+    
+  </section>
+  
+  <!-- //cadastro -->
+  <section class="teste" style="margin-top: -5%;" *ngIf="exibirRodape">
+    <footer class="bottem-wthree-footer text-center py-md-4 py-3">
+      
+      <span style="color: white;" >
+        © 2020 Comunidade Orgânica. Todos os direitos reservados. | Grupo 1 PI - T03VE
+      </span>
+    </footer>
+  </section>
+ 
+  

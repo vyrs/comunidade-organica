@@ -1,0 +1,54 @@
+<!-- <p>atualizar-fotos works!</p>
+<button (click)="teste()">Teste</button> -->
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h4>Imagens atuais do produto</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4" *ngFor="let item of fotos; index as i">
+            <img class="imgEdit" [src]=" fotos[i].url " >
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h4>Selecione as novas imagens do produto</h4>
+        </div>
+    </div>
+    <div class="row">
+        <form [formGroup]="formulario" (ngSubmit)="salva()" >
+
+            <div class="col-12">
+                <label for="nome">Foto</label>
+                <p-fileUpload #upload 
+                    name="demo[]" 
+                    chooseLabel="Escolher uma foto" 
+                    [showUploadButton]="false"
+                    [showCancelButton]="false"
+                    (onSelect)="enviarImagem($event)"                
+                    fileLimit="3"
+                    multiple="multiple"
+                    accept="image/*"
+                    maxFileSize="1000000">               
+                </p-fileUpload>   
+            </div>
+            <div class="mt-2">
+                <button type="submit"  class="btn btn-success">Atualizasr</button>
+                <!-- <p-button  icon="pi pi-external-link" label="Show"></p-button> -->
+                <p-dialog header="Novas imagens" [(visible)]="displayBasic" [style]="{width: '50vw'}" [baseZIndex]="10000">
+                <p>Ao clicar em confimar você estará apagando todas as fotos atuais do produto
+                    e substituindo por fotos novas, isso realmente que você deseja.
+                </p>
+                <ng-template pTemplate="footer">
+                    <!-- <p-button icon="pi pi-check" type="submit"  label="Confirmar" styleClass="p-button-text"></p-button> -->
+                    <p-button icon="pi pi-times" (click)="displayBasic=false" label="Cancelar" styleClass="p-button-text"></p-button>
+                </ng-template>
+                </p-dialog>
+    
+            </div>
+
+        </form>
+       
+    </div>
+</div>

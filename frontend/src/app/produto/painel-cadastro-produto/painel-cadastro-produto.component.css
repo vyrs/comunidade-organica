@@ -1,0 +1,61 @@
+div {
+   
+    /* border: 1px solid blue; */
+    
+    margin-top: -1% ;
+    /* background-color: aquamarine;   */  
+    width: 100%;
+    z-index: 0;
+    /* height: 500px; */
+  }
+  .formNome {
+    
+    margin-top: 0.5%;
+    
+  }
+  .textareaCadastro {
+    font-size: 14px;
+    color: #000;
+    padding: .9em 0em;
+    outline: 0;    
+    border: 2px solid #28a745;        
+    border-radius: 0px;
+    outline: none;
+    background: transparent;
+  }
+  .d{
+    position: absolute;
+  }
+  .teste {
+    
+    position: absolute;
+    margin-left: -19%;
+    width: 1340px;    
+  }
+  .imgEdit {
+    width: 25%;
+    height: 50px;
+  }
+ .btnAjusteEdFotos{
+   margin-bottom: -3%;
+   margin-left: 2%;
+ }
+
+ host ::ng-deep .p-button {
+  margin: 0 .5rem 0 0;
+  min-width: 10rem;
+}
+
+p {
+  margin: 0;
+}
+
+.confirmation-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host ::ng-deep .p-dialog .p-button {
+  min-width: 6rem;
+}

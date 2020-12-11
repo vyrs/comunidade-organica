@@ -1,0 +1,36 @@
+import { ClienteModel } from '../model/cliente-model';
+import { ClienteEntity } from '../entity/cliente-entity';
+import { Mapper } from './../../../app/base/mapper';
+
+export class ClienteMapper extends Mapper<ClienteEntity, ClienteModel> {
+
+    mapFrom(entity: ClienteEntity): ClienteModel {
+        return {
+            id: entity.id,
+            nome: entity.nome ? entity.nome : '',
+            sobrenome: entity.sobrenome,
+            telefone: entity.telefone,
+            /* dataNasc: entity.dataNasc,
+            cpf: entity.cpf,
+            rg: entity.rg, */
+            email: entity.email,
+            endereco: entity.endereco,
+            senha: entity.senha
+        };
+    }
+
+    mapTo(model: ClienteModel): ClienteEntity {
+        return {
+            id: model.id,
+            nome: model.nome,
+            sobrenome: model.sobrenome,
+            telefone: model.telefone,
+           /*  dataNasc: model.dataNasc,
+            cpf: model.cpf,
+            rg: model.rg, */
+            email: model.email,
+            endereco: model.endereco,
+            senha: model.senha
+        };
+    }
+}

@@ -1,0 +1,20 @@
+div {
+   
+   /*  border: 1px solid blue; */
+}
+.conteudo {
+/*     background-color: cadetblue; */
+    position: relative;
+    height: 500px;
+    width: 80%;
+    margin-top: 0.5%;
+    
+}
+.menulogado {
+   /*  position: relative !important; */
+    position: relative !important;
+    height: 500px !important;
+    margin: 0.5% !important;
+    padding-top: 4%;    
+    
+}

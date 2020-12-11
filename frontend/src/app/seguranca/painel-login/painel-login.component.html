@@ -1,0 +1,70 @@
+<!-- <div>
+
+  <div class="headder-top-login">
+    navegação
+    <nav>
+      <div id="logo">
+        <h1>
+          <a routerLink="/home">CO</a>
+        </h1>
+      </div>
+      <div class="sub-headder position-relative">
+        <h6>
+          <a routerLink="/home">Comunidade
+            <br>Orgânica</a>
+        </h6>
+      </div>
+      <label for="drop" class="toggle">Menu</label>
+      <input type="checkbox" id="drop">
+      <ul class="menu mt-2">
+        <li class="active">
+          <a routerLink="/home">Home</a>
+        </li>         
+        <li>
+          <a routerLink="/cadastro">Cadastro</a>
+        </li>
+        <li>
+          <a routerLink="/login">Login</a>
+        </li>               
+      </ul>
+    </nav>
+    //navegação
+  </div>
+  
+</div> -->
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Comunidade Orgânica</h5>
+          <form class="form-signin" [formGroup]="formulario" (ngSubmit)="logar()">
+            <div class="form-label-group">
+              <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus formControlName="login">
+              <label for="inputEmail">Nome de Usuário</label>
+            </div>
+
+            <div class="form-label-group">
+              <input type="password" id="inputPassword" class="form-control" placeholder="Password" required formControlName="senha">
+              <label for="inputPassword">Senha</label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Entrar</button>
+            <hr class="my-4">             
+          </form>
+          <span>Não tem uma conta? <a routerLink="/cadastro" routerLinkActive="router-link-active" >Cadastre-se</a></span>
+        </div>
+        
+      </div>
+    </div>
+   
+  </div>
+</div>
+  
+  <!--Start termos de uso-->
+  <div class="row mt-5 justify-content-md-center mb-5">
+      <div class="Txtwhite">
+          Ao continuar, você concorda com os <a href="#"> Termos de Uso e a Política de Privacidade</a> da
+      <br>Comunidade Organica, e também, em receber comunicações via e-mail e push da Comunidade Organica e seus parceiros.
+      </div>
+  </div>

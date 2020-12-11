@@ -1,0 +1,84 @@
+  
+
+
+  <!-- produtos -->
+ <div class="container areaComprar">     
+      <div class="row margin">        
+        <div class="col-12 margin">
+          <h1 class="uppercase">Tipo: {{ produtoSerComprado.tipo }}</h1>
+        </div>        
+      </div>
+      <div class="row margin">
+        
+        <div class="col-6 margin tamanhoArea">
+          <p-carousel [value]="fotosProduto">
+            <ng-template let-fotosProduto pTemplate="item">          
+              <img class="imgTamanhoCompra" [src]="fotosProduto.url">
+            </ng-template>        
+        </p-carousel>
+        </div>
+        
+        <div class="col-6 margin tamanhoArea">
+          <br>
+          <h5 class="uppercase"><strong>Nome:</strong> {{ produtoSerComprado.nome }}</h5>
+          <br>          
+          <span><strong>Anúncio criado em:</strong> {{ produtoSerComprado.dataAnuncio }}</span>
+          <br>
+          <span><strong>Data da Colheita:</strong> {{ produtoSerComprado.dataColheita }}</span>          
+          <br>
+          <span><strong>Nome do Vendedor:</strong> {{ produtoSerComprado.cliente.nome }}</span>
+          <br>
+          <span><strong>Quantidade disponível:</strong> {{ produtoSerComprado.quantidade }}</span>
+          <br>
+          <span><strong>Localização:</strong> {{ produtoSerComprado.cliente.endereco.cidade.estado.nome }}
+            - {{ produtoSerComprado.cliente.endereco.cidade.nome }}
+          </span>
+          <br> <br> 
+          <p-inputNumber [(ngModel)]="quantidade" [showButtons]="true" buttonLayout="horizontal"
+                         [min]="qntsMinima" [max]= "qntsMaxima">
+          </p-inputNumber>
+          <br><br>        
+          <h3><strong>Preço: R$: {{ produtoSerComprado.preco.toFixed(2) }}</strong></h3>
+          <br><br>
+          <!-- <button  class="btn btn-outline-secondary">Finalizar Compra</button> -->
+
+          <div *ngIf="produtoSerComprado.quantidade > 0; then thenBlock else elseBlock"></div>
+          <ng-template #thenBlock>
+
+            <p-button  (click)="showMaximizableDialog()" label="Comprar"></p-button>
+          <p-dialog header="{{ produtoSerComprado.nome }}" [(visible)]="displayMaximizable" [modal]="true" [style]="{width: '50vw'}" [maximizable]="false" [baseZIndex]="10000"
+              [draggable]="false" [resizable]="false">
+              <p>Você realmente deseja comprar este produto: {{ produtoSerComprado.nome }} <br>
+                no valor de R$: {{ (produtoSerComprado.preco * quantidade).toFixed(2) }} reais.
+              </p>
+              <ng-template pTemplate="footer">
+                  <p-button icon="pi pi-check" (click)="comprar()" label="Sim" styleClass="p-button-text"></p-button>            
+                  <p-button icon="pi pi-times" (click)="displayMaximizable = false;" label="Não" styleClass="p-button-text"></p-button>
+              </ng-template>
+          </p-dialog>
+
+          </ng-template>
+          <ng-template #elseBlock>
+            <button pButton pRipple type="button" label="Indisponível"  class="p-button-rounded p-button-warning"></button>
+            
+          </ng-template>
+
+
+          
+
+        </div>
+
+      </div>      
+    
+ </div>
+  
+    <section style="margin-top: 3%;">
+      <footer class="bottem-wthree-footer text-center py-md-4 py-3">
+        <a href="#home" class="move-top text-center mt-3">
+          <span class="fa fa-arrow-up" aria-hidden="true"></span>
+        </a>
+        <p>
+          © 2020 Comunidade Orgânica. Todos os direitos reservados. | Grupo 1 PI - T03VE
+        </p>
+      </footer>
+    </section>

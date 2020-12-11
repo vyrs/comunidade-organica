@@ -1,0 +1,84 @@
+<div class="card">
+
+    <div class="row">
+        <form class="input-group" [formGroup]="formulario" (ngSubmit)="inseriParams()" >
+
+            <div class="col-3">
+                <div class="form-group ">
+                    <label for="">Estado</label>
+                    <p-dropdown 
+                        [options]="estados" 
+                        formControlName="estado" 
+                        [filter]="true" 
+                        [style]="{'width':'100%'}"
+                        (onChange)="listarCidades()">
+                    </p-dropdown>
+                </div>
+            </div>
+            <div class="col-3">               
+                <div class="form-group ">
+                    <label for="">Cidade</label>
+                    <p-dropdown 
+                        [options]="cidades" 
+                        formControlName="cidade" 
+                        [filter]="true" 
+                        [style]="{'width':'100%'}">
+                    </p-dropdown>
+                </div>
+            </div>
+            <div class="col-4 ajuste contact-forms">
+                <input id="nome" type="text" class="form-control " formControlName="nome" placeholder="Pesquisar" />            
+            </div>
+            <div class="col-2 ajuste">
+                <div class="input-group-append">
+                    <button  class="btn btn-outline-secondary " type="submit">Pesquisar</button>                    
+                 </div>
+            </div>
+                        
+        </form>
+    </div>
+  
+    <p-dataView [value]="products" layout="grid" [paginator]="true" [rows]="4">
+
+        <ng-template let-ProdutoEntity pTemplate="gridItem"  >
+            <div class="p-col-3">
+                <div class="product-grid-item card">
+                    <div class="product-grid-item-top">
+                        <div>
+                            <i class="pi pi-tag product-category-icon"></i>
+                            <span class="uppercase product-category"><strong>{{ ProdutoEntity.tipo }}</strong></span>
+                        </div>
+                    </div>
+                    <div class="product-grid-item-content">
+                        <p-card>
+                            <div *ngFor="let item of urls">                                
+                                <div *ngIf="item.id == ProdutoEntity.id">
+                                    <img class="imgTamanho" [src]='item.url1' /> 
+                                </div>                                
+                            </div>                              
+                        </p-card>
+                                                                     
+                        <div class="descNomeProduto">
+                            <span class="uppercase">{{ ProdutoEntity.nome }}</span> 
+                        </div>
+                        
+                    </div>
+                    <div class="product-grid-item-bottom">
+                        <span class="product-price"
+                        >R$: {{ ProdutoEntity.preco.toFixed(2) }}</span>
+                        
+                    </div>                    
+                    <div class="product-grid-item-bottom">
+                        <button *ngIf="usuario !== ''" (click)="vaiComprar(ProdutoEntity.id)"   routerLinkActive="router-link-active"  class="btn btn-outline-secondary">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+   
+</div>
+
+
+
+
+
