@@ -26,7 +26,7 @@ Lombok | PrimeNG
 Hibernate |
 Aws service |
 Swagger |
-OAthu2 |
+OAuth2 |
 Spring security jwt |
 Spring boot starter mail |
 
